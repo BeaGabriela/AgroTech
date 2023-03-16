@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='./style/index.css' />
+    <link rel="shortcut icon" href="../../assets/industry.png" type="image/x-icon">
+    <title>Operacional</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+
+<body onload="carregar()">
+    <header>
+        <h1>Bem-vindo, <label id="bemVindo"></label>!</h1>
+    </header>
+    <main>
+        <div id="imgs">
+            <img id="logo" src="../../assets/industry.png">
+            <h2><label>Agro</label>Tech</h2>
+            <img id="person" src="../../assets/person.png" />
+        </div>
+       
+        <nav class="nav2">
+            <div>
+                <div id="headersManutencao">
+                    <p>Manutenção</p>
+                    
+                </div>
+                <div id="busca">
+                    <label id="filtro">Filtro:</label>
+                    <select id="filtroManutencao">
+                        <option value="3"></option>
+                        <option value="1">Concluídas</option>
+                        <option value="0">Pendentes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ListarManutencoes">
+                <div class="listarManutencao model">
+                    <label>Id:</label>
+                    <p id="Id_manutencao"></p>
+                    <label>Veiculo:</label>
+                    <p id="veiculoM"></p>
+                    <label>Data inicio</label>
+                    <p id="dataInicio"></p>
+                    <label>Valor:</label>
+                    <p id="valor"></p>
+                    <label>Descricao</label>
+                    <p id="descricao"></p>
+                    <label>Data fim:</label>
+                    <p id="data_fim"></p>
+                </div>
+            </div>
+
+        </nav>
+        <nav class="nav3">
+            <div>
+                <div id="headersOperacao">
+                    <p>Operação</p>
+                </div>
+                <div id="buscaOperacao">
+                    <label id="filtro">Filtro:</label>
+                    <select id="filtroOperacao">
+                        <option value="3"></option>
+                        <option value="0">Pendentes</option>
+                        <option value="1">Concluídas</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ListarOperacoes">
+                <div class="listarOperacoes model">
+                    <label>Id:</label>
+                    <p id="Id_operacoes"></p>
+                    <label>Veiculo:</label>
+                    <p id="veiculoO"></p>
+                    <label>Motorista:</label>
+                    <p id="MotoristaOper"></p>
+                    <label>Data inicio</label>
+                    <p id="data_Inicio"></p>
+                    <label>Descricao</label>
+                    <p id="descricaoOp"></p>
+                    <label>Data Retorno:</label>
+                    <p id="data_retorno"></p>
+                </div>
+            </div>
+
+        </nav>
+        <nav class="nav4">
+            <div>
+                <a href="../RELATORIOS/index.html"><img src="../../assets/realtorio.png" /></a>
+            </div>
+            <div>
+                <a href="./motoristas/motorista.html"><img src="../../assets/caminhao-de-entrega.png" /></a>
+            </div>
+            <div id="logoutt">
+                <img onclick="logout()" src="../../assets/sairPagina.png" />
+                <p class="textSair model">Sair</p>
+
+            </div>
+
+        </nav>
+
+    </main>
+</body>
+<script src='./index.js'></script>
+
+</html>
