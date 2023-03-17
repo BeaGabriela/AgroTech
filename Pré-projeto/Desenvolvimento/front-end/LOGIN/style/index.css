@@ -25,8 +25,9 @@ header {
 
 @keyframes infinito{
     0%{
-        background-color: #56d1318d;
+        background-color: #56d1319a;
         transition: 2s;
+        color: #f5f5f5;
         
     }
     50%{
@@ -47,8 +48,8 @@ header {
 
 
 header>img {
-    height: 15vh;
-    margin-top: 1vh;
+    height: 10vh;
+    margin-top:5vh;
     border-radius: 30%;
     margin-left: 10px;
     margin-bottom: 1vh;
