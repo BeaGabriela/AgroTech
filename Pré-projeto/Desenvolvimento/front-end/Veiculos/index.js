@@ -42,6 +42,7 @@ function carregar() {
 
 function ValidarPlaca(placa) {
     var inputPlaca = document.querySelector('#PlacaVeiculo')
+    inputPlaca.value = inputPlaca.value.toLocaleUpperCase()
     placa = inputPlaca.value
 
     if (placa.length == 7) {
@@ -50,6 +51,7 @@ function ValidarPlaca(placa) {
 
         if (modelAntigo.test(placa) || modelAtual.test(placa)) {
             infosPlacas.innerHTML = ''
+
         } else {
 
             infosPlacas.innerHTML = 'A placa digitada é inválida!'
@@ -180,7 +182,7 @@ function fetchVeiculos(valorFiltro) {
                 if (v.uso == false) {
                     var veiculosCLone = document.querySelector('.listarVeiculos').cloneNode(true)
                     veiculosCLone.classList.remove('model')
-                    veiculosCLone.style.border = '1px solid #B9E937'
+                    veiculosCLone.style.border += '1px solid #B9E937'
                     veiculosCLone.querySelector('#Id_Veiculos').innerHTML = v.id
                     veiculosCLone.querySelector('#placa').innerHTML = v.placa
                     veiculosCLone.querySelector('#modelop').innerHTML = v.modelo
@@ -314,6 +316,7 @@ function Motoristas() {
         listarMotorista.classList.add('model')
         deleterMotorista.classList.add('model')
 
+
         btnCadastrarMotorista.addEventListener('click', () => {
             const options = {
                 method: 'POST',
@@ -350,7 +353,7 @@ function fetchMotoristas(motoristas) {
 
                     listarClone.querySelector('#id_Motorista').innerHTML = f.id
                     listarClone.querySelector('#nomeMotorista').innerHTML = f.nome
-                    listarClone.querySelector('#CPFmotorista').innerHTML = f.cpf
+                    listarClone.querySelector('#CPFmotorista').innerHTML = f.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "\$1.\$2.\$3\-\$4");
                     listarClone.querySelector('#CNHMotorista').innerHTML = f.cnh
 
                     listarClone.querySelector('#CPFmotorista').style.fontSize = '10pt'

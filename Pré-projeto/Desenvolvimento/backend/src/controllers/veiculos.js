@@ -45,7 +45,8 @@ const readOne = async (req, res) => {
             id: true,
             placa: true,
             modelo: true,
-            tipo: true            
+            tipo: true,
+            uso: true            
         }
     });
 
