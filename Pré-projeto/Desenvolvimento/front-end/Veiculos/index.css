@@ -132,13 +132,15 @@ header>h1 {
     margin-left: 5vw;
 }
 
-select {
+#definindoFiltro, 
+#filtroMotorista {
     border: #f5f5f5;
     border-radius: 10px;
     width: 7vw;
     height: 5vh;
     background-color: #B9E937;
 }
+
 
 #tipoVeiculos{
     margin-top: 1vh;
@@ -150,6 +152,16 @@ input {
     width: 10vw;
     height: 3vh;
 }
+
+select{
+    border: 1px solid #B9E937;
+    border-radius: 8px;
+    margin-top: 1vh;
+    width: 7vw;
+    height: 3vh;
+    cursor: pointer;
+}
+
 
 #filtro {
     margin-right: 0.5vw;

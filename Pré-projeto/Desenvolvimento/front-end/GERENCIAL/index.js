@@ -120,7 +120,6 @@ function Manutencoes() {
         })
 
         btnCadastrar.addEventListener('click', () => {
-            // var inputVeiculo = document.querySelector('#veiculo')
             var inputValor = document.querySelector('#valorManutencao')
             var inputDescricao = document.querySelector('#DescricaoManutencao')
 
@@ -289,8 +288,6 @@ function Operacoes() {
     var newOperacao = document.querySelector('#newOperacao')
     var cadastrarOperacao = document.querySelector('.cadastrarOperacao')
     var btnCadatsrarOpera = document.querySelector('#cadastrarOperacao')
-    // var inputVeiculosOpera = document.querySelector('#veiculoOpera')
-    // var inputMotoristaOpera = document.querySelector('#motoristaId')
     var inputDescricaoOpera = document.querySelector('#DescricaoOperacao')
 
     newOperacao.addEventListener('click', () => {

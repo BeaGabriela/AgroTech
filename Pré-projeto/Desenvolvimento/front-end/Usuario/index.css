@@ -113,6 +113,17 @@ input {
     height: 3vh;
 }
 
+select{
+    border: 1px solid #B9E937;
+    border-radius: 8px;
+    margin-top: 1vh;
+    width: 10vw;
+    height: 3vh;
+    color: #535353;
+    cursor: pointer;
+}
+
+
 
 label {
     color: #289507;

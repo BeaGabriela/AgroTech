@@ -24,16 +24,16 @@ function carregar() {
     newUser()
 
     //Text btn saida
-        var textSaida = document.querySelector('#logoutt')
-        var textoSair = document.querySelector('.textSair')
-        textSaida.addEventListener('mouseover', () => {
-            textoSair.classList.remove('model')
-            textoSair.style.margin = '2px 0vw 0vw 0.7vw'
-        })
+    var textSaida = document.querySelector('#logoutt')
+    var textoSair = document.querySelector('.textSair')
+    textSaida.addEventListener('mouseover', () => {
+        textoSair.classList.remove('model')
+        textoSair.style.margin = '2px 0vw 0vw 0.7vw'
+    })
 
-        textSaida.addEventListener('mouseout', () => {
-            textoSair.classList.add('model')
-        })
+    textSaida.addEventListener('mouseout', () => {
+        textoSair.classList.add('model')
+    })
 
 
     fetch('http://localhost:3000/usuario')
@@ -68,15 +68,15 @@ function carregar() {
                         const options = {
                             method: 'DELETE',
                             headers: {
-                              Authorization: 'Bearer ' + user.token
+                                Authorization: 'Bearer ' + user.token
                             }
-                          };
-                          console.log(options)
-                          
-                          fetch(`http://localhost:3000/usuario/${u.id}`, options)
+                        };
+                        console.log(options)
+
+                        fetch(`http://localhost:3000/usuario/${u.id}`, options)
                             .then(response => response.status)
                             .then(response => {
-                                if(response == 200){
+                                if (response == 200) {
                                     window.location.reload()
                                 }
                             })
@@ -99,46 +99,68 @@ function newUser() {
     var nomeUser = document.querySelector('#nomeUser')
     var emailUser = document.querySelector('#email')
     var senha = document.querySelector('#senha')
+    var nivel = document.querySelector('#selecionarNivel')
+
     var cadastrarNewUser = document.querySelector('#cadastrarNewUser')
-    var nivel = "Operacional"
+    // var nivel = "Operacional"
 
     emailUser.addEventListener('blur', () => {
         fetch('http://localhost:3000/usuario')
-        .then(response => response.json())
-        .then(response => {
-            response.forEach(u => {
-                if(emailUser.value == u.email){
-                    infos.innerHTML = "Esse email já existe nessa empresa,\n por favor tente outro!"
-                    infos.style.fontSize = '11pt'
-                    infos.style.marginRight = '1vw'
-                    infos.style.marginTop = '1vh'
-                    emailUser.value = ''
-                }else if(emailUser.value != u.email){
-                    infos.innerHTML = ''
-                }
+            .then(response => response.json())
+            .then(response => {
+                response.forEach(u => {
+                    if (emailUser.value == u.email) {
+                        infos.innerHTML = "Esse email já existe nessa empresa,\n por favor tente outro!"
+                        infos.style.fontSize = '11pt'
+                        infos.style.marginRight = '1vw'
+                        infos.style.marginTop = '1vh'
+                        emailUser.value = ''
+                    } else if (emailUser.value != u.email) {
+                        infos.innerHTML = ''
+                    }
+                })
             })
-        })
     })
     cadastrarNewUser.addEventListener('click', () => {
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + user.token
-            },
-            body: `{"nome":"${nomeUser.value}","email":"${emailUser.value}","senha":"${senha.value}","funcao":"${nivel}","nivel":2}`
-        };
+        if (nivel.value == 1) {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + user.token
+                },
+                body: `{"nome":"${nomeUser.value}","email":"${emailUser.value}","senha":"${senha.value}","funcao":"Gerencial","nivel":${nivel.value}}`
+            };
+            fetch('http://localhost:3000/usuarioCreate', options)
+                .then(response => response.status)
+                .then(response => {
+                    if (response == 201) {
+                        window.location.reload()
+                    }
+                })
 
 
-        fetch('http://localhost:3000/usuarioCreate', options)
-            .then(response => response.status)
-            .then(response => {
-                if (response == 201) {
-                    window.location.reload()
-                }else{
+        } else {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + user.token
+                },
+                body: `{"nome":"${nomeUser.value}","email":"${emailUser.value}","senha":"${senha.value}","funcao":"Operacional","nivel":${nivel.value}}`
+            };
+            fetch('http://localhost:3000/usuarioCreate', options)
+                .then(response => response.status)
+                .then(response => {
+                    if (response == 201) {
+                        window.location.reload()
+                    }
+                })
 
-                }
-            })
+        }
+
+
+
 
     })
 

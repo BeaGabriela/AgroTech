@@ -28,7 +28,7 @@ function carregar() {
     Veiculos()
 
 
-        var textSaida = document.querySelector('#logoutt')
+    var textSaida = document.querySelector('#logoutt')
     var textoSair = document.querySelector('.textSair')
     textSaida.addEventListener('mouseover', () => {
         textoSair.classList.remove('model')
@@ -52,13 +52,15 @@ function ValidarPlaca(placa) {
             infosPlacas.innerHTML = ''
         } else {
 
-            infosPlacas.innerHTML = 'A placa digitada é inválida'
-            infosPlacas.style.marginTop = '1vh'
+            infosPlacas.innerHTML = 'A placa digitada é inválida!'
+            infosPlacas.style.marginTop = '0.5vh'
+            infosPlacas.style.fontSize = '12pt'
 
         }
     } else {
-        infosPlacas.innerHTML = 'A placa digitada é inválida'
-        infosPlacas.style.marginTop = '2vh'
+        infosPlacas.innerHTML = 'A placa digitada é inválida!'
+        infosPlacas.style.marginTop = '0.5vh'
+        infosPlacas.style.fontSize = '12pt'
     }
 
 }
@@ -436,10 +438,10 @@ function fecharModalCadastrarMotorista() {
     listarMotorista.classList.remove('model')
 }
 
-function validarCpfMotorista(){
-    if(validarCpf(motoristaCpf.value)) {
+function validarCpfMotorista() {
+    if (validarCpf(motoristaCpf.value)) {
         infoCpf.innerHTML = ''
-    }else {
+    } else {
         infoCpf.innerHTML = "CPF Inválido";
     }
 }
@@ -481,7 +483,7 @@ function validarCpf(cpfV) {
     if (d2 != cpfV[10]) return false;
 
     return true
- 
+
 }
 
 function voltarAnterior() {
